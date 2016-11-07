@@ -6,8 +6,8 @@
 package multithreading;
 
 /**
- *
- * @author mayank
+ * @author mayank   2015056
+ * @author aman     2015012
  */
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,7 +29,8 @@ public class Consumer2 implements Runnable {
                     max=temp.get(i);
                 }
             }
-            System.out.format("Max for dataset "+ Math.round(temp.get(0))+ " is: %f\n", max);
+            Multithreading.display.max=max;
+            //System.out.format("Max for dataset "+ Math.round(temp.get(0))+ " is: %f\n", max);
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {

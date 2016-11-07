@@ -6,8 +6,8 @@
 package multithreading;
 
 /**
- *
- * @author mayank
+ * @author mayank   2015056
+ * @author aman     2015012
  */
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,7 +29,8 @@ public class Consumer3 implements Runnable {
             }
             avg=sum/100;
             sum=0;
-            System.out.format("Avg for dataset "+ Math.round(temp.get(0))+ " is: %f\n", avg);
+            Multithreading.display.avg=avg;
+            //System.out.format("Avg for dataset "+ Math.round(temp.get(0))+ " is: %f\n", avg);
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {

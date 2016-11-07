@@ -7,7 +7,8 @@ package multithreading;
 
 /**
  *
- * @author mayank
+ * @author mayank   2015056
+ * @author aman     2015012
  */
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,7 +30,8 @@ public class Consumer1 implements Runnable {
                     min=temp.get(i);
                 }
             }
-            System.out.format("Min for dataset "+ Math.round(temp.get(0))+ " is: %f\n", min);
+            Multithreading.display.min=min;
+            //System.out.format("Min for dataset "+ Math.round(temp.get(0))+ " is: %f\n", min);
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {

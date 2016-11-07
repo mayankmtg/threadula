@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author mayank
+ * @author mayank   2015056
+ * @author aman     2015012
  */
 public class Dataset {
     // Message sent from producer
@@ -23,6 +24,7 @@ public class Dataset {
     public boolean empty1 = true;
     public boolean empty2 = true;
     public boolean empty3 = true;
+    public boolean empty4 = true;
     
     public synchronized ArrayList<Float> take(int index) {
         // Wait until message is
@@ -54,6 +56,16 @@ public class Dataset {
             // Toggle status.
             empty3 = true;    
         }
+        else if(index==4){
+            while (empty4) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {}
+            }
+            // Toggle status.
+            empty4 = true;    
+        }
+        
         // Notify producer that
         // status has changed.
         notifyAll();
@@ -63,7 +75,7 @@ public class Dataset {
     public synchronized void put(ArrayList<Float> message) {
         // Wait until message has
         // been retrieved.
-        while (!empty1 || !empty2 || !empty3) {
+        while (!empty1 || !empty2 || !empty3 || !empty4) {
             try { 
                 wait();
             } catch (InterruptedException e) {}
@@ -73,6 +85,7 @@ public class Dataset {
         empty1 = false;
         empty2=false;
         empty3=false;
+        empty4=false;
         // Store message.
         this.message = message;
         // Notify consumer that status

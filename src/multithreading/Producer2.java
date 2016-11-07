@@ -7,7 +7,8 @@ package multithreading;
 
 /**
  *
- * @author mayank
+ * @author mayank   2015056
+ * @author aman     2015012
  */
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -57,6 +58,7 @@ public class Producer2 implements Runnable {
             }
             //System.out.println(small);
             small.add(0,(float)(i+1));
+            Multithreading.display.ind=i+1;
             drop.put(small);
             try {
                 Thread.sleep(1000);
@@ -70,6 +72,7 @@ public class Producer2 implements Runnable {
         drop.empty1=true;
         drop.empty2=true;
         drop.empty3=true;
+        drop.empty4=true;
         System.out.println("Humidity data Closed.\n");
 
     }
