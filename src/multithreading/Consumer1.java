@@ -20,6 +20,7 @@ public class Consumer1 implements Runnable {
     }
 
     public void run() {
+        System.out.println("c1s");
         float min=0;
         for (ArrayList<Float> temp = drop.take(1);temp.size()!=1;temp = drop.take(1)) {
             min=temp.get(1);
@@ -34,5 +35,7 @@ public class Consumer1 implements Runnable {
 //            } catch (InterruptedException e) {
 //            }
         }
+    System.out.println("c1e");
     }
+    
 }

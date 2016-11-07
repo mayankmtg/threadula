@@ -14,18 +14,18 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Producer1 implements Runnable {
+public class Producer3 implements Runnable {
     private Dataset drop;
 
-    public Producer1(Dataset drop) {
+    public Producer3(Dataset drop) {
         this.drop = drop;
     }
     public void run() {
-         System.out.println("p1s");
+         System.out.println("p3s");
          ArrayList<Float> big = new ArrayList();
          ArrayList<Float> small = new ArrayList();
             try{
-            BufferedReader in = new BufferedReader(new FileReader("temperature"));
+            BufferedReader in = new BufferedReader(new FileReader("humidity"));
             String line;
             //int ind=0;
             while((line = in.readLine()) != null){
@@ -47,7 +47,7 @@ public class Producer1 implements Runnable {
                 small.add((big.get(j)));
             }
             //System.out.println(small);
-            small.add(0,(float)(10+i+1));
+            small.add(0,(float)(30+i+1));
             drop.put(small);
             try {
                 Thread.sleep(1000);
@@ -57,6 +57,6 @@ public class Producer1 implements Runnable {
         small.removeAll(small);
         small.add(3.14f);
         drop.put(small);
-        System.out.println("p1f");
+        System.out.println("p3e");
     }
 }

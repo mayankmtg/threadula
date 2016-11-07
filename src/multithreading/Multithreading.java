@@ -22,6 +22,8 @@ public class Multithreading {
         Dataset drop = new Dataset();
         
         (new Thread(new Producer1(drop))).start();
+        (new Thread(new Producer2(drop))).start();
+        (new Thread(new Producer3(drop))).start();
         (new Thread(new Consumer1(drop))).start();
         (new Thread(new Consumer2(drop))).start();
         (new Thread(new Consumer3(drop))).start();

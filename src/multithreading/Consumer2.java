@@ -20,6 +20,7 @@ public class Consumer2 implements Runnable {
     }
 
     public void run() {
+        System.out.println("c2s");
         float max=0;
         for (ArrayList<Float> temp = drop.take(2);temp.size()!=1;temp = drop.take(2)) {
             max=temp.get(1);
@@ -33,6 +34,8 @@ public class Consumer2 implements Runnable {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {
 //            }
+              
         }
+    System.out.println("c2e");
     }
 }
