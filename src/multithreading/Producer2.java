@@ -13,19 +13,28 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Producer2 implements Runnable {
     private Dataset drop;
-
-    public Producer2(Dataset drop) {
+    private Thread p1;
+    public Producer2(Dataset drop, Thread p1) {
         this.drop = drop;
+        this.p1=p1;
     }
     public void run() {
-         System.out.println("p2s");
+        try {
+            p1.join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Producer2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Humidity data: ");
+        
          ArrayList<Float> big = new ArrayList();
          ArrayList<Float> small = new ArrayList();
             try{
-            BufferedReader in = new BufferedReader(new FileReader("rainfall"));
+            BufferedReader in = new BufferedReader(new FileReader("humidity"));
             String line;
             //int ind=0;
             while((line = in.readLine()) != null){
@@ -47,7 +56,7 @@ public class Producer2 implements Runnable {
                 small.add((big.get(j)));
             }
             //System.out.println(small);
-            small.add(0,(float)(20+i+1));
+            small.add(0,(float)(i+1));
             drop.put(small);
             try {
                 Thread.sleep(1000);
@@ -56,8 +65,12 @@ public class Producer2 implements Runnable {
         }
         small.removeAll(small);
         small.add(3.14f);
-        drop.put(small);
-        System.out.println("p2e");
+        //drop.put(small);
+        
+        drop.empty1=true;
+        drop.empty2=true;
+        drop.empty3=true;
+        System.out.println("Humidity data Closed.\n");
 
     }
 }

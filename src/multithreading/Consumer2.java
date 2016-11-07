@@ -20,7 +20,7 @@ public class Consumer2 implements Runnable {
     }
 
     public void run() {
-        System.out.println("c2s");
+        //System.out.println("c2s");
         float max=0;
         for (ArrayList<Float> temp = drop.take(2);temp.size()!=1;temp = drop.take(2)) {
             max=temp.get(1);
@@ -29,13 +29,13 @@ public class Consumer2 implements Runnable {
                     max=temp.get(i);
                 }
             }
-            System.out.format("Max Temperature for dataset "+ Math.round(temp.get(0))+ " is: %f\n", max);
+            System.out.format("Max for dataset "+ Math.round(temp.get(0))+ " is: %f\n", max);
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {
 //            }
               
         }
-    System.out.println("c2e");
+    //System.out.println("c2e");
     }
 }

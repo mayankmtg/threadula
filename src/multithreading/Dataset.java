@@ -20,9 +20,9 @@ public class Dataset {
     // for producer to send message,
     // false if producer should wait for
     // consumer to retrieve message.
-    private boolean empty1 = true;
-    private boolean empty2 = true;
-    private boolean empty3 = true;
+    public boolean empty1 = true;
+    public boolean empty2 = true;
+    public boolean empty3 = true;
     
     public synchronized ArrayList<Float> take(int index) {
         // Wait until message is

@@ -21,7 +21,7 @@ public class Producer1 implements Runnable {
         this.drop = drop;
     }
     public void run() {
-         System.out.println("p1s");
+         System.out.println("Temperature data: ");
          ArrayList<Float> big = new ArrayList();
          ArrayList<Float> small = new ArrayList();
             try{
@@ -47,7 +47,7 @@ public class Producer1 implements Runnable {
                 small.add((big.get(j)));
             }
             //System.out.println(small);
-            small.add(0,(float)(10+i+1));
+            small.add(0,(float)(i+1));
             drop.put(small);
             try {
                 Thread.sleep(1000);
@@ -56,7 +56,11 @@ public class Producer1 implements Runnable {
         }
         small.removeAll(small);
         small.add(3.14f);
-        drop.put(small);
-        System.out.println("p1f");
+        //drop.put(small);
+        
+        drop.empty1=true;
+        drop.empty2=true;
+        drop.empty3=true;
+        System.out.println("Temperature data Closed.\n");
     }
 }

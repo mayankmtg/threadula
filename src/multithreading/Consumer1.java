@@ -20,7 +20,7 @@ public class Consumer1 implements Runnable {
     }
 
     public void run() {
-        System.out.println("c1s");
+        //System.out.println("c1s");
         float min=0;
         for (ArrayList<Float> temp = drop.take(1);temp.size()!=1;temp = drop.take(1)) {
             min=temp.get(1);
@@ -29,13 +29,13 @@ public class Consumer1 implements Runnable {
                     min=temp.get(i);
                 }
             }
-            System.out.format("Min Temperature for dataset "+ Math.round(temp.get(0))+ " is: %f\n", min);
+            System.out.format("Min for dataset "+ Math.round(temp.get(0))+ " is: %f\n", min);
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {
 //            }
         }
-    System.out.println("c1e");
+    //System.out.println("c1e");
     }
     
 }
